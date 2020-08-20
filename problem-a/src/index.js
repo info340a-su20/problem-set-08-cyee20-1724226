@@ -2,6 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 
-import data from "./senators.json";
+import SENATOR from "./senators.json";
 
-ReactDOM.render(<App array={data} />, document.getElementById("root"));
+ReactDOM.render(<App senators={SENATOR} />, document.getElementById("root"));

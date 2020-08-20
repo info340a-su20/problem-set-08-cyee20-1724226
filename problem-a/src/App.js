@@ -1,30 +1,30 @@
 import React, { Component } from "react"; //import React Component
 
-const EXAMPLE_SENATORS = [
-  {
-    id: "C000127",
-    name: "Maria Cantwell",
-    state: "WA",
-    party: "Democrat",
-    phone: "202-224-3441",
-    twitter: "SenatorCantwell",
-  },
-  {
-    id: "M001111",
-    name: "Patty Murray",
-    state: "WA",
-    party: "Democrat",
-    phone: "202-224-2621",
-    twitter: "PattyMurray",
-  },
-];
+// const EXAMPLE_SENATORS = [
+//   {
+//     id: "C000127",
+//     name: "Maria Cantwell",
+//     state: "WA",
+//     party: "Democrat",
+//     phone: "202-224-3441",
+//     twitter: "SenatorCantwell",
+//   },
+//   {
+//     id: "M001111",
+//     name: "Patty Murray",
+//     state: "WA",
+//     party: "Democrat",
+//     phone: "202-224-2621",
+//     twitter: "PattyMurray",
+//   },
+// ];
 
 export class App extends Component {
   render() {
     return (
       <div className="container">
         <h1>US Senators 2019</h1>
-        <SenatorTable />
+        <SenatorTable senators={this.props.senators} />
       </div>
     );
   }
@@ -32,7 +32,7 @@ export class App extends Component {
 
 export class SenatorTable extends Component {
   render() {
-    let senatorArray = EXAMPLE_SENATORS.map((senator) => {
+    let senatorArray = this.props.senators.map((senator) => {
       return <SenatorRow key={senator.id} senator={senator} />;
     });
     return (
