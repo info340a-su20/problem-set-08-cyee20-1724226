@@ -15,7 +15,11 @@ class App extends Component {
       let adoptedPet = state.pets.find((pet) => {
         return petName === pet.name;
       });
-      adoptedPet.adopted = true;
+      if (adoptedPet.adopted != true) {
+        adoptedPet.adopted = true;
+      } else {
+        adoptedPet.adopted = false;
+      }
       return adoptedPet;
     });
   };
@@ -110,7 +114,7 @@ class BreedNav extends Component {
   }
 }
 
-class PetCards extends Component {
+class PetCard extends Component {
   handleClick = (event) => {
     this.props.adoptCallback(this.props.pCards.name);
   };
@@ -138,7 +142,7 @@ class PetList extends Component {
   render() {
     let newPetList = this.props.pets.map((type) => {
       return (
-        <PetCards
+        <PetCard
           key={type.name}
           pCards={type}
           adoptCallback={this.props.adoptCallback}
